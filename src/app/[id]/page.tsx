@@ -18,5 +18,5 @@ export default function SingleMoviePage({ params }: { params: { id: string } }) 
     getDetails();
   }, []);
 
-  return <MovieDetails details={"[]"} />;
+  return <MovieDetails details={[]} />;
 }
