@@ -1,3 +1,4 @@
+import { IMovieDetails } from "@/api/movies/movies.types";
 import MovieDetails from "../_components/MovieDetails/MovieDetails";
 
 async function getData(id: string) {
@@ -19,9 +20,7 @@ async function getData(id: string) {
 }
 
 export default async function SingleMoviePage({ params }: { params: { id: string } }) {
-  const repo = await getData(params.id as string);
+  getData(params.id as string).then((res) => console.log("res => ", res));
 
-  console.log("repo => ", repo);
-
-  return <MovieDetails details={repo.data} />;
+  return <MovieDetails details={[] as unknown as IMovieDetails} />;
 }
