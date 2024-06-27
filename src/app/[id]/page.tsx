@@ -10,7 +10,7 @@ export default async function SingleMoviePage({ params }: { params: { id: string
 
   const repo = await res.json();
 
-  console.log("repo => ", params);
+  console.log("repo => ", repo);
 
   return <MovieDetails details={repo.data} />;
 }
