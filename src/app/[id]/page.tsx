@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 
 import MovieDetails from "../_components/MovieDetails/MovieDetails";
+import { IMovieDetails } from "@/api/movies/movies.types";
 
 export default function SingleMoviePage({ params }: { params: { id: string } }) {
   const getDetails = () =>
@@ -18,5 +19,5 @@ export default function SingleMoviePage({ params }: { params: { id: string } }) 
     getDetails();
   }, []);
 
-  return <MovieDetails details={[]} />;
+  return <MovieDetails details={[] as unknown as IMovieDetails} />;
 }

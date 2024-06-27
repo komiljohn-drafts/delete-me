@@ -5,7 +5,7 @@ import Actors from "../Actors/Actors";
 import SectionTitle from "../SectionTitle/Sectiontitle";
 
 interface props {
-  details: IMovieDetails | undefined;
+  details?: IMovieDetails;
 }
 const MovieDetails = ({ details }: props) => {
   console.log("details", details);
@@ -20,26 +20,12 @@ const MovieDetails = ({ details }: props) => {
             alt={details?.title || ""}
             fill
           />
-          <Image
-            src="/images/overlay.png"
-            className={styles.movie_details__overlay}
-            alt="overlay"
-            fill
-          />
-          <Image
-            className={styles.movie_details__poster}
-            src={details?.poster || ""}
-            alt={details?.title || ""}
-            fill
-          />
+          <Image src="/images/overlay.png" className={styles.movie_details__overlay} alt="overlay" fill />
+          <Image className={styles.movie_details__poster} src={details?.poster || ""} alt={details?.title || ""} fill />
         </div>
         <h1 className={styles.movie_details__title}>{details?.title}</h1>
-        <div className={`${styles.movie_details__year} xl-500`}>
-          {details?.year}
-        </div>
-        <div className={`${styles.movie_details__description} md`}>
-          {details?.description}
-        </div>
+        <div className={`${styles.movie_details__year} xl-500`}>{details?.year}</div>
+        <div className={`${styles.movie_details__description} md`}>{details?.description}</div>
 
         {details?.genres && (
           <>
@@ -47,10 +33,7 @@ const MovieDetails = ({ details }: props) => {
 
             <div className={styles.movie_details__genres_list}>
               {details?.genres?.map((genre) => (
-                <p
-                  key={genre.id}
-                  className={`${styles.movie_details__badge} xs`}
-                >
+                <p key={genre.id} className={`${styles.movie_details__badge} xs`}>
                   {genre.title}
                 </p>
               ))}
@@ -63,10 +46,7 @@ const MovieDetails = ({ details }: props) => {
             <SectionTitle title="Страна" />
             <div className={styles.movie_details__country}>
               {details?.countries?.map((genre) => (
-                <p
-                  key={genre.id}
-                  className={`${styles.movie_details__badge} xs`}
-                >
+                <p key={genre.id} className={`${styles.movie_details__badge} xs`}>
                   {genre.title}
                 </p>
               ))}
