@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 
 import MovieDetails from "../_components/MovieDetails/MovieDetails";
